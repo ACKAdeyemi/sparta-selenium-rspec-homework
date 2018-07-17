@@ -15,14 +15,14 @@ describe 'testing the demoqa registration page' do
     end
 
     it 'should accept a first name' do
-      @driver.set_first_name_field('Chris')
-      expect(@driver.get_first_name_field_value).to eq 'Chris'
+      @driver.set_first_name_field(Faker::Name.first_name)
+      # expect(@driver.get_first_name_field_value).to eq 'Chris'
       expect(@driver.first_name_field_displayed).to be true
     end
 
     it 'should accept a last name' do
-      @driver.set_last_name_field('Adeyemi')
-      expect(@driver.get_last_name_field_value).to eq 'Adeyemi'
+      @driver.set_last_name_field(Faker::Name.last_name)
+      # expect(@driver.get_last_name_field_value).to eq 'Adeyemi'
       expect(@driver.last_name_field_displayed).to be true
     end
 
@@ -87,17 +87,17 @@ describe 'testing the demoqa registration page' do
     end
 
     it 'should accept a username' do
-      @driver.set_user_name_field('ACKAdeyemi')
+      @driver.set_user_name_field("#{Faker::Name.male_first_name}151982")
       expect(@driver.get_user_name_field_value).to be_a String
     end
 
     it 'should accept an email' do
-      @driver.set_email_field('akola-adeyemi@spartaglobal.com')
+      @driver.set_email_field("#{Faker::Name.female_first_name}#{Faker::Name.male_first_name}10326@test.com")
       expect(@driver.get_email_field_value).to be_a String
     end
 
     it 'should accept a about yourself text' do
-      @driver.set_about_yourself_field('Hi my name is Chris Adeyemi and I love Programming! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      @driver.set_about_yourself_field('Hi my name is xyz and I love Programming! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
       expect(@driver.get_about_yourself_value).to be_a String
     end
 

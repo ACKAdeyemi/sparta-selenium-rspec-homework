@@ -226,7 +226,7 @@ class SeleniumDemoReg
 
   def set_confirmation_password_field(password)
     @chrome_driver.find_element(:id, CONFIRM_PASSWORD_FIELD).send_keys(password)
-    # sleep 1
+    sleep 1
   end
 
   def get_confirmation_password_value
@@ -236,13 +236,11 @@ class SeleniumDemoReg
   # registration confirmation - Difficulty Easy
 
   def click_submit
-    @chrome_driver.find_element(:id, 'pie_regiser_form').submit
-    # @chrome_driver.find_element(:id, SUBMIT_BUTTON).submit
-    sleep 15
+    @chrome_driver.find_element(:name, SUBMIT_BUTTON).click
+    sleep 6
   end
 
   def check_registration_successful
-    @chrome_driver.find_element(:class, REGISTRATION_CONFIRMATION)['value']
-    sleep 5
+    @chrome_driver.find_element(:class, REGISTRATION_CONFIRMATION)['textContent']
   end
 end
