@@ -236,13 +236,11 @@ class SeleniumDemoReg
   # registration confirmation - Difficulty Easy
 
   def click_submit
-    @chrome_driver.find_element(:id, 'pie_regiser_form').submit
-    # @chrome_driver.find_element(:id, SUBMIT_BUTTON).submit
-    sleep 15
+    @chrome_driver.find_element(:name, SUBMIT_BUTTON).click
+    sleep 6
   end
 
   def check_registration_successful
-    @chrome_driver.find_element(:class, REGISTRATION_CONFIRMATION)['value']
-    sleep 5
+    @chrome_driver.find_element(:class, REGISTRATION_CONFIRMATION)['textContent']
   end
 end
