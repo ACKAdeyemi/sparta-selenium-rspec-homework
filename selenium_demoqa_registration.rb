@@ -208,6 +208,10 @@ class SeleniumDemoReg
     @chrome_driver.find_element(:id, PROFILE_PICTURE_BUTTON).send_keys(picture_path)
   end
 
+  def get_pic
+    @chrome_driver.find_element(:id, PROFILE_PICTURE_BUTTON)['value']
+  end
+
   def set_about_yourself_field(details)
     @chrome_driver.find_element(:id, DESCRIPTION_FIELD).send_keys(details)
     # sleep 1

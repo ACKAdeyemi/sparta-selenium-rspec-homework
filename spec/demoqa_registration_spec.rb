@@ -95,6 +95,8 @@ describe 'testing the demoqa registration page' do
 
     it "should upload a chosen photo" do
       @driver.upload_profile_pic('/Users/tech-a43/Desktop/Sparta/Engineering-11/SDET/web-testing/selenium/selenium-rspec-lab/sample_prof_pic.png')
+      expect(@driver.get_pic).to eq "C:\\fakepath\\sample_prof_pic.png"
+      # p @driver.get_pic
     end
 
     it 'should accept a about yourself text' do
