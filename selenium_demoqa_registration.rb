@@ -226,7 +226,7 @@ class SeleniumDemoReg
 
   def set_confirmation_password_field(password)
     @chrome_driver.find_element(:id, CONFIRM_PASSWORD_FIELD).send_keys(password)
-    # sleep 1
+    sleep 1
   end
 
   def get_confirmation_password_value
