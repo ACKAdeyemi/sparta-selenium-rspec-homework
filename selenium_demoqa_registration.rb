@@ -16,7 +16,7 @@ class SeleniumDemoReg
   PHONE_NUMBER_FIELDS = 'phone_9' # id
   USERNAME_FIELD = 'username' # id
   EMAIL_FIELD = 'email_1' # id
-  PROFILE_PICTURE_BUTTON =  # id
+  PROFILE_PICTURE_BUTTON = 'profile_pic_10' # id
   DESCRIPTION_FIELD = 'description' # id
   PASSWORD_FIELD = 'password_2' # id
   CONFIRM_PASSWORD_FIELD = 'confirm_password_password_2' # id
@@ -203,6 +203,10 @@ class SeleniumDemoReg
   end
 
   # about yourself / description field - Difficulty Easy
+
+  def upload_profile_pic(picture_path)
+    @chrome_driver.find_element(:id, PROFILE_PICTURE_BUTTON).send_keys(picture_path)
+  end
 
   def set_about_yourself_field(details)
     @chrome_driver.find_element(:id, DESCRIPTION_FIELD).send_keys(details)

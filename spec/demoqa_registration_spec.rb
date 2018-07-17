@@ -16,46 +16,44 @@ describe 'testing the demoqa registration page' do
 
     it 'should accept a first name' do
       @driver.set_first_name_field(Faker::Name.first_name)
-      # expect(@driver.get_first_name_field_value).to eq 'Chris'
       expect(@driver.first_name_field_displayed).to be true
     end
 
     it 'should accept a last name' do
       @driver.set_last_name_field(Faker::Name.last_name)
-      # expect(@driver.get_last_name_field_value).to eq 'Adeyemi'
       expect(@driver.last_name_field_displayed).to be true
     end
 
     it 'should accept a marital status selection of Single, Married, or Divorced' do
       @driver.select_marital_option('Single')
-      p @driver.single_marital_status
+      # p @driver.single_marital_status # to test selection
       expect(@driver.single_marital_status).to eq true
       expect(@driver.single_marital_status).to_not eq false
 
       @driver.select_marital_option('Married')
-      p @driver.married_marital_status
+      # p @driver.married_marital_status # to test selection
       expect(@driver.married_marital_status).to eq true
       expect(@driver.married_marital_status).to_not eq false
 
       @driver.select_marital_option('Divorced')
-      p @driver.divorced_marital_status
+      # p @driver.divorced_marital_status # to test selection
       expect(@driver.divorced_marital_status).to eq true
       expect(@driver.divorced_marital_status).to_not eq false
     end
 
     it 'should accept a hobby status selection of Dance, Reading, or Cricket' do
       @driver.select_hobby_option('Dance')
-      p @driver.dance_hobby_status
+      # p @driver.dance_hobby_status # to test selection
       expect(@driver.dance_hobby_status).to eq true
       expect(@driver.dance_hobby_status).to_not eq false
 
       @driver.select_hobby_option('Reading')
-      p @driver.reading_hobby_status
+      # p @driver.reading_hobby_status # to test selection
       expect(@driver.reading_hobby_status).to eq true
       expect(@driver.reading_hobby_status).to_not eq false
 
       @driver.select_hobby_option('Cricket')
-      p @driver.cricket_hobby_status
+      # p @driver.cricket_hobby_status # to test selection
       expect(@driver.cricket_hobby_status).to eq true
       expect(@driver.cricket_hobby_status).to_not eq false
     end
@@ -81,8 +79,7 @@ describe 'testing the demoqa registration page' do
     end
 
     it 'should accept a valid phone number' do
-      @driver.set_phone_number_field('447771234567')
-      # expect(@driver.get_phone_number_field_value.length).to eq 12
+      @driver.set_phone_number_field('07771234567')
       expect(@driver.get_phone_number_field_value.length).to be_a Integer
     end
 
@@ -96,8 +93,12 @@ describe 'testing the demoqa registration page' do
       expect(@driver.get_email_field_value).to be_a String
     end
 
+    it "should upload a chosen photo" do
+      @driver.upload_profile_pic('/Users/tech-a43/Desktop/Sparta/Engineering-11/SDET/web-testing/selenium/selenium-rspec-lab/sample_prof_pic.png')
+    end
+
     it 'should accept a about yourself text' do
-      @driver.set_about_yourself_field('Hi my name is xyz and I love Programming! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.')
+      @driver.set_about_yourself_field("Hi my name is #{@driver.get_first_name_field_value} #{@driver.get_last_name_field_value} and I love Programming! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
       expect(@driver.get_about_yourself_value).to be_a String
     end
 
